@@ -10,7 +10,22 @@
  */
 
 export function bfs(tree) {
-    const result = [];
-
-    return result;
+  const result = [tree.val];
+  listOfNodes(tree, result);
+  return result;
+}
+function listOfNodes(node, listArray) {
+  const { left, right } = node;
+  if (left) {
+    listArray.push(left.val);
+  }
+  if (right) {
+    listArray.push(right.val);
+  }
+  if (left) {
+    listOfNodes(left, listArray);
+  }
+  if (right) {
+    listOfNodes(right, listArray);
+  }
 }
