@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/permutations/
 
-function permutations(n) {
+export function permutations(n) {
   const array = [];
   for (let i = 1; i <= n; i++) {
     array.push(i);
