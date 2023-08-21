@@ -9,5 +9,22 @@
  */
 
 export function reverseList(head) {
+  const listStack = [];
+  createListStack(head, listStack);
 
+  return createReversedList(listStack);
+}
+function createListStack(node, listStack) {
+  listStack.unshift({ val: node.val, next: null });
+  if (node.next) {
+    createListStack(node.next, listStack);
+  }
+}
+function createReversedList(listStack) {
+  let lastNode = listStack[0];
+  for (let i = 1; i < listStack.length; i++) {
+    lastNode.next = listStack[i];
+    lastNode = listStack[i];
+  }
+  return listStack[0];
 }
