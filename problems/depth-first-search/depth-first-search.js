@@ -11,5 +11,17 @@
  */
 
 export function dfs(tree) {
-
+  const listArray = [];
+  listNodes(tree, listArray);
+  return listArray;
+}
+function listNodes(node, listArray) {
+  const val = node.val;
+  listArray.push(val);
+  if (node.left) {
+    listNodes(node.left, listArray);
+  }
+  if (node.right) {
+    listNodes(node.right, listArray);
+  }
 }
